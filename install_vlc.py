@@ -37,7 +37,7 @@ def get_expected_sha256():
     response = requests.get(url_0)
     sha256_text = response.text
 
-    expected_sha256 = sha256_text.split()[10]
+    expected_sha256 = sha256_text.split()[0]
     # Hint: See example code in lab instructions entitled "Extracting Text from a Response Message Body"
     # Hint: Use str class methods, str slicing, and/or regex to extract the expected SHA-256 value from the text 
     return expected_sha256
