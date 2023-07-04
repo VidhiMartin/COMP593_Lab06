@@ -120,3 +120,4 @@ def delete_installer(installer_path):
 
 if __name__ == '__main__':
     main()
+#completed script
