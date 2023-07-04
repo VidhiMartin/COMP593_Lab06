@@ -52,7 +52,7 @@ def download_installer():
     url_1 = "http://download.videolan.org/pub/videolan/vlc/3.0.17.4/win64/vlc-3.0.17.4-win64.exe"
     response = requests.get(url_1)
     # Hint: See example code in lab instructions entitled "Downloading a Binary File"
-    return response.content()
+    return response.content
 
 def installer_ok(installer_data, expected_sha256):
     """Verifies the integrity of the downloaded VLC installer file by calculating its SHA-256 hash value 
@@ -66,7 +66,7 @@ def installer_ok(installer_data, expected_sha256):
         bool: True if SHA-256 of VLC installer matches expected SHA-256. False if not.
     """    
     # TODO: Step 3
-    sha256_hash = hashlib.sha256(installer_data).hexidigest()
+    sha256_hash = hashlib.sha256(installer_data).hexdigest()
     
     # Hint: See example code in lab instructions entitled "Computing the Hash Value of a Response Message Body"
     return sha256_hash == expected_sha256
@@ -111,13 +111,12 @@ def delete_installer(installer_path):
         installer_path (str): Full path of the VLC installer file
     
     """
-    subprocess.run([installer_path, '/L=1033', '/S'], check = False)
     if os.path.exists(installer_path):
         os.remove(installer_path)
         print(f'{installer_path} deleted successfully!')
     else:
         print(f'{installer_path} error: Not found or already deleted.')
-    return
+  
 
 if __name__ == '__main__':
     main()
